@@ -1,0 +1,57 @@
+﻿@model RegisterViewModel
+@{
+    ViewData["Title"] = "Register";
+}
+
+<h1>Register</h1>
+
+<form id="frmRegister" asp-action="Register" asp-controller="Account" method="post">
+    <input type="hidden" id="token" name="token"/>
+    <div class="row">
+        <section class="col col-4">
+            <label>
+                @Html.TextBoxFor(x => x.FirstName)
+            </label>
+        </section>
+        <section class="col col-4">
+            <label>
+                @Html.TextBoxFor(x => x.LastName)
+            </label>
+        </section>
+    </div>
+    <div class="row">
+        <section class="col col-6">
+            <label>
+                @Html.TextBoxFor(x => x.Email)
+            </label>
+        </section>
+    </div>
+    <div class="row">
+        <section class="col col-6">
+            <label>
+                @Html.PasswordFor(x => x.Password)
+            </label>
+        </section>
+    </div>
+    <div class="row">
+        <section class="col col-6">
+            <button class="g-recaptcha"
+                    data-sitekey="sdssfs-sdsd" 
+                    data-callback='onSubmit'
+                    data-action='submit'>
+                Submit
+            </button>
+        </section>
+    </div>
+</form>
+
+
+@section Scripts{
+    <script src="https://www.google.com/recaptcha/api.js"></script>
+    <script>
+        function onSubmit(token) {
+            document.getElementById("token").value = token;
+            document.getElementById("frmRegister").submit();
+        }
+    </script>
+}
