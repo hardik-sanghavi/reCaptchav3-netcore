@@ -1,5 +1,7 @@
 # reCaptchav3-netcore
 
+Here, implemented the google recaptcha v3 in .net core.
+
 For implement the google recaptcha need site key and secrete key.
 
 **How to get the site and secrete key for google recaptcha v3?**
